@@ -1,8 +1,8 @@
 -- Table: order_info_cleaned
 -- Purpose: Clean transactional order data for customer-level analytics
 --Key Filters:
-	- Excludes cancellations and invalid transactions
-	- Retains only revenue-generating order lines
+	-- Excludes cancellations and invalid transactions
+	-- Retains only revenue-generating order lines
 -- Grain: 1 row per invoice line item
 
 create or replace table seventh-jet-478719-g8.OnlineOrderII.order_info_cleaned AS
@@ -22,4 +22,5 @@ WHERE
   AND Quantity > 0
   AND Price > 0
   AND `Customer ID` IS NOT NULL
+
   AND InvoiceDate IS NOT NULL
